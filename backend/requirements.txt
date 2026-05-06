@@ -1,0 +1,21 @@
+# --- Web API ---
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.32,<1.0
+python-multipart>=0.0.17       # multipart form parsing for file uploads
+pydantic>=2.10,<3.0
+pydantic-settings>=2.6,<3.0
+python-dotenv>=1.0,<2.0
+
+# --- LiveKit voice agent + plugins (1.x line) ---
+# We use the 1.x API (Agent, AgentSession, on_user_turn_completed). The 0.12.x
+# branch had a different API (VoicePipelineAgent), incompatible with our code.
+livekit-agents>=1.0,<2.0
+livekit-plugins-deepgram>=1.0,<2.0
+livekit-plugins-openai>=1.0,<2.0
+livekit-plugins-silero>=1.0,<2.0
+livekit-api>=1.0,<2.0
+
+# --- Knowledge base / RAG ---
+chromadb>=0.5,<1.0               # embedded vector store, persists to ./data/chroma
+sentence-transformers>=3.3,<4.0  # local embeddings (all-MiniLM-L6-v2, no API needed)
+pypdf>=5.0,<6.0                  # PDF text extraction
