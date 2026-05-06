@@ -27,24 +27,6 @@ For non-Windows / Docker / manual steps, see [Setup](#setup) below.
 
 ---
 
-## Demo
-
-What you'll see in the demo video:
-
-1. **Tweak the system prompt** in the UI and save it.
-2. **Pick an agent voice** from a curated dropdown (8 Deepgram Aura voices,
-   male and female).
-3. **Upload one or more documents** (`.pdf` / `.txt` / `.md`) — they get
-   chunked, embedded with `all-MiniLM-L6-v2`, and stored in ChromaDB.
-4. **Start the call** — your browser joins a LiveKit room, the agent
-   worker joins the same room from the backend.
-5. **Ask a question** that's answered by the uploaded document. As you speak:
-   - the **live transcript** updates with partials and finals,
-   - the **RAG sources panel** shows which chunks the agent retrieved,
-   - the agent **speaks the answer back** via TTS.
-
----
-
 ## Architecture
 
 ```
