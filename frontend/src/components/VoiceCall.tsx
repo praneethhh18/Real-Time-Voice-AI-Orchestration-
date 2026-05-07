@@ -87,10 +87,10 @@ export function InRoomCallControls() {
   return (
     <div
       className="fixed bottom-6 left-1/2 -translate-x-1/2 z-20
-                 flex items-center gap-3 px-3 py-2
+                 flex items-center gap-2.5 px-3 py-1.5
                  bg-panel/80 backdrop-blur-md
                  border border-border rounded-full shadow-xl
-                 w-[min(92vw,520px)]"
+                 w-[min(88vw,380px)]"
     >
       {/* state indicator dot — pulses on active states */}
       <span
@@ -106,7 +106,7 @@ export function InRoomCallControls() {
       </span>
 
       {/* state label, fixed-ish width so the visualizer doesn't jump */}
-      <span className="text-xs font-medium text-slate-300 min-w-[64px]">{s.label}</span>
+      <span className="text-[11px] font-medium text-slate-300 min-w-[58px]">{s.label}</span>
 
       {/* live audio visualizer of the agent's voice */}
       <div className="flex-1 h-7 flex items-center">

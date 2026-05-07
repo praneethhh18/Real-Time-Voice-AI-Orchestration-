@@ -188,12 +188,13 @@ async def entrypoint(ctx: JobContext) -> None:
     session = AgentSession(
         vad=vad,
         stt=deepgram.STT(model=settings.STT_MODEL, api_key=settings.DEEPGRAM_API_KEY),
-        # Groq exposes an OpenAI-compatible API, so the openai plugin works
-        # directly when we point base_url at Groq's endpoint.
+        # The LLM is OpenAI-compatible; we point base_url at our chosen
+        # provider. Defaults to Groq, but if LLM_API_KEY is set in .env we
+        # use that + LLM_BASE_URL instead — easy backup if Groq is blocked.
         llm=openai.LLM(
             model=settings.LLM_MODEL,
-            api_key=settings.GROQ_API_KEY,
-            base_url="https://api.groq.com/openai/v1",
+            api_key=settings.LLM_API_KEY or settings.GROQ_API_KEY,
+            base_url=settings.LLM_BASE_URL,
         ),
         tts=deepgram.TTS(model=voice_id, api_key=settings.DEEPGRAM_API_KEY),
     )

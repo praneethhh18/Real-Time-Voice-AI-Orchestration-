@@ -21,6 +21,13 @@ class Settings(BaseSettings):
     # Groq (free, low-latency LLM inference; OpenAI-compatible API)
     GROQ_API_KEY: str
 
+    # LLM provider override (optional). If LLM_API_KEY is set, the agent uses
+    # these instead of Groq — useful if Groq is rate-limited / Cloudflare-blocked
+    # and you want to swap to Cerebras / Together / OpenRouter without code changes.
+    # Just edit backend/.env and restart the agent.
+    LLM_API_KEY: str | None = None
+    LLM_BASE_URL: str = "https://api.groq.com/openai/v1"
+
     # Model + retrieval tuning
     LLM_MODEL: str = "llama-3.3-70b-versatile"
     EMBEDDING_MODEL: str = "all-MiniLM-L6-v2"
